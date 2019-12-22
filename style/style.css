@@ -35,6 +35,12 @@ header .links {
     border-radius: 50%;
 }
 
+.links > div > a {
+    text-decoration: none;
+    color: white;
+}
+
+
 .links > div:first-child:before {
     display: none;
 }
