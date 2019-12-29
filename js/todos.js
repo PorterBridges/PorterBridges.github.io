@@ -49,7 +49,7 @@ function renderTodoList(){
     for(var i=0; i<todoList.length; i++){
         var todo = todoList[i];
         var todoItem = document.createElement("div");
-        todoItem.innerText = todo.title + "-----" + todo.done;
+        todoItem.innerText = todo.title + "-----" + todo.done +"\n"+ todo.description;
         todoItem.setAttribute("data-id", todo.id);
         todoItem.addEventListener("click", function(event) {
             toggleTodoDone(event.target.dataset.id);
@@ -59,17 +59,21 @@ function renderTodoList(){
     }
 }
 
+
 var todoInput = document.querySelector("#todo-input");
+var todoInputt = document.querySelector("#desc-input");
 var addTodoBtn = document.querySelector("#add-todo-btn");
 
 todoInput.addEventListener("keyup", function(e) {
     if(e.which == 13){
-        addTodo(todoInput.value, todoInput.value);
+        addTodo(todoInput.value, todoInputt.value);
         renderTodoList();
     }
 })
 
+
 addTodoBtn.addEventListener("click", function(){
-    addTodo(todoInput.value, todoInput.value);
+    addTodo(todoInput.value,todoInputt.value);
     renderTodoList();
 })
+
