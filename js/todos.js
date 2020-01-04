@@ -49,9 +49,17 @@ function renderTodoList(){
     for(var i=0; i<todoList.length; i++){
         var todo = todoList[i];
         var todoItem = document.createElement("div");
-        todoItem.innerText = todo.title + "-----" + todo.done +"\n"+ todo.description;
+        todoItem.className += " clearfix";
+        var checkbox = document.createElement('input');
+        checkbox.type = "checkbox";
+        checkbox.name = "name";
+        checkbox.checked = todo.done;
+
+        todoItem.innerHTML = "<div class='todo-item'><div class='title'>" + todo.title + "</div>"  +"\n"+  "<div class='desc'>" + todo.description + "</div></div>";
+        todoItem.prepend(checkbox);
         todoItem.setAttribute("data-id", todo.id);
-        todoItem.addEventListener("click", function(event) {
+        checkbox.setAttribute("data-id", todo.id);
+        checkbox.addEventListener("change", function(event) {
             toggleTodoDone(event.target.dataset.id);
             renderTodoList();
         })
@@ -61,19 +69,19 @@ function renderTodoList(){
 
 
 var todoInput = document.querySelector("#todo-input");
-var todoInputt = document.querySelector("#desc-input");
+var todoDesc = document.querySelector("#desc-input");
 var addTodoBtn = document.querySelector("#add-todo-btn");
 
 todoInput.addEventListener("keyup", function(e) {
     if(e.which == 13){
-        addTodo(todoInput.value, todoInputt.value);
+        addTodo(todoInput.value, todoDesc.value);
         renderTodoList();
     }
 })
 
 
 addTodoBtn.addEventListener("click", function(){
-    addTodo(todoInput.value,todoInputt.value);
+    addTodo(todoInput.value,todoDesc.value);
     renderTodoList();
 })
 

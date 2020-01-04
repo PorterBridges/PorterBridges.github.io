@@ -3,6 +3,13 @@
     padding: 0;
 }
 
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+
 header {
     height: 78px;
     background: #356c71;
@@ -59,4 +66,55 @@ header .links {
     height: 220px;
     border: 1px solid #333333;
 }
+
+
+
+/* shift this to a new file */
+
+.todo-container .todos {
+    width: 600px;
+    margin: 0 auto;
+    border: 1px solid #eee;
+    padding: 40px;
+    background: white;
+}
+
+.todo-list > div {
+    background: #51aaf71f;
+    padding: 12px;
+    margin: 12px 0;
+}
+
+
+
+.todo-list > div input[type="checkbox"] {
+    width: 25px;
+    height: 25px;
+    float:left;
+}
+
+.todo-list > div .todo-item {
+    float: left;
+}
+
+#todo-input, #desc-input {
+    height: 24px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #bbb;
+    padding-left: 4px;
+}
+
+#add-todo-btn {
+    float: right;
+    background: #cccccc;
+    border: none;
+    height: 29px;
+    padding: 0 26px;
+    color: white;
+    font-weight: bolder;
+    font-size: 26px;
+    border-radius: 3px;
+}
+
 
