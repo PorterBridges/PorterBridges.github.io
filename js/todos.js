@@ -55,7 +55,7 @@ function renderTodoList(){
         checkbox.name = "name";
         checkbox.checked = todo.done;
 
-        todoItem.innerHTML = "<div class='todo-item'><div class='title'>" + todo.title + "</div>"  +"\n"+  "<div class='desc'>" + todo.description + "</div></div>";
+        todoItem.innerHTML = "<div class='todo-item'><div class='title'><b>" + todo.title + "</b></div>"  +"\n"+  "<div class='desc'>" + todo.description + "</div></div>";
         todoItem.prepend(checkbox);
         todoItem.setAttribute("data-id", todo.id);
         checkbox.setAttribute("data-id", todo.id);
