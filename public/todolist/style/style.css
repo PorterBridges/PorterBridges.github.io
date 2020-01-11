@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+
+header {
+    height: 78px;
+    background: #356c71;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 0 32px;
+}
+
+header .links {
+    display: flex;
+    flex-direction: row;
+}
+
+.links > div {
+    margin-left: 31px;
+    position: relative;
+}
+
+.links > div:before {
+    content: "";
+    height: 8px;
+    width: 8px;
+    background: white;
+    display: inline-block;
+    position: absolute;
+    left: -19px;
+    top: 5px;
+    border-radius: 50%;
+}
+
+.links > div > a {
+    text-decoration: none;
+    color: white;
+}
+
+
+.links > div:first-child:before {
+    display: none;
+}
+
+.container {
+    background-image: url("../img/funky-lines.png");
+    height: 800px;
+}
+
+.container .welcome-div {
+    height: 170px;
+    border: 1px solid #333333;
+}
+
+.container .slideshow {
+    height: 220px;
+    border: 1px solid #333333;
+}
+
+
+
