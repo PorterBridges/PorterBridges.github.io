@@ -27,13 +27,13 @@
                 
                 <input type="text" name="todo-input"  id="todo-input" placeholder="Title">
                 
-                <input type="text" name="desc-input" id="desc-input" placeholder="Description">
+                <input type="text" name="desc-input"  id="desc-input" placeholder="Description">
                 <button id="add-todo-btn">+</button>
                 <div class="task-left">
                     Pending Task
                 </div>
                 <div class="todo-list">
-
+                
                 </div>
             </div>
         </div>
@@ -53,6 +53,16 @@
 <!-- Add Firebase products that you want to use -->
 <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+
+<script>
+    //TODO: Replace the following with your app's Firebase project configuration
+    var firebaseConfig = {
+        // ...
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+</script>
 
 <script src="js/todos.js"></script>
 </html>

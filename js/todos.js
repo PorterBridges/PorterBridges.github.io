@@ -1,10 +1,12 @@
+// import { listenerCount } from "cluster";
+
 var todoListFromLS = window.localStorage.getItem("todos");
 if(todoListFromLS){
     todoListFromLS = JSON.parse(todoListFromLS);
 }
 var todoList = todoListFromLS || [];
 
-renderTodoList();
+renderTodoList()
 
 function addTodo(title, description){
     todoList.push({
@@ -27,6 +29,8 @@ function markAsDone(id){
     }    
     updateToLocalStorage();
 }
+
+
 
 function toggleTodoDone(id){
     for(var i=0; i<todoList.length; i++){
@@ -55,11 +59,24 @@ function renderTodoList(){
         checkbox.name = "name";
         checkbox.checked = todo.done;
 
-        todoItem.innerHTML = "<div class='todo-item'><div class='title'><b>" + todo.title + "</b></div>"  +"\n"+  "<div class='desc'>" + todo.description + "</div></div>";
+        todoItem.innerHTML = "<div class='todo-item'><div class='title'><b>" + todo.title + "</b></div>"  +"\n"+  "<div class='desc'><u>" + todo.description + "</u></div></div>";
         todoItem.prepend(checkbox);
         todoItem.setAttribute("data-id", todo.id);
         checkbox.setAttribute("data-id", todo.id);
         checkbox.addEventListener("change", function(event) {
+            toggleTodoDone(event.target.dataset.id);
+            renderTodoList();
+        })
+        todoListDiv.append(todoItem);
+
+        var BUTTON = document.createElement('input')
+        BUTTON.type = "button"
+        BUTTON.name= "name"
+        BUTTON.delete = todo.done;
+
+        todoItem.prepend(BUTTON);
+        BUTTON.setAttribute("data-id", todo.id);
+        BUTTON.addEventListener("change", function(event) {
             toggleTodoDone(event.target.dataset.id);
             renderTodoList();
         })
@@ -71,6 +88,7 @@ function renderTodoList(){
 var todoInput = document.querySelector("#todo-input");
 var todoDesc = document.querySelector("#desc-input");
 var addTodoBtn = document.querySelector("#add-todo-btn");
+var deleteTodoBUTTON = document.querySelector(".todo-item")
 
 todoInput.addEventListener("keyup", function(e) {
     if(e.which == 13){
@@ -84,4 +102,6 @@ addTodoBtn.addEventListener("click", function(){
     addTodo(todoInput.value,todoDesc.value);
     renderTodoList();
 })
+
+// deleteTodoBUTTON.removeChild(deleteTodoBUTTON.childNodes[0]);
 

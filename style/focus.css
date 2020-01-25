@@ -87,7 +87,12 @@ header .links {
     background: #51aaf71f;
     padding: 12px;
     margin: 12px 0;
+    
 }
+
+
+
+
 
 .todo-list :hover{
     background-color: rgb(202, 218, 226);
@@ -99,6 +104,23 @@ header .links {
     width: 25px;
     height: 25px;
     float:left;
+}
+
+.todo-list > div input[type="BUTTON"] {
+    width: 25px;
+    height: 25px;
+    border-color: white;
+    border-radius: 25px;
+    background: url('../img/icons8-trash-100.png');
+    background-size: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0px 0px 0px 542px;
+    position: absolute;
+}
+
+.todo-list > div input[type="BUTTON"]:hover{
+    background-color: brown;
 }
 
 .todo-list > div .todo-item {
@@ -143,5 +165,8 @@ header .links {
     padding: 5px;
     margin-top: 10px;
 }
+
+
+
 
 
