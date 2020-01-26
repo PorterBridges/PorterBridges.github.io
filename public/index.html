@@ -7,6 +7,7 @@
 
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/7.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
     <!-- include only the Firebase features as you need -->
     <script defer src="/__/firebase/7.6.1/firebase-auth.js"></script>
     <script defer src="/__/firebase/7.6.1/firebase-database.js"></script>
@@ -53,6 +54,11 @@
 
         try {
           let app = firebase.app();
+          // firebase.initializeApp({
+          //   apiKey: 'AIzaSyAMz01CZr7EBd_i2Ap3CT2pEgvgDu2Rspc',
+          //   authDomain: 'todolist-b04fa.firebaseapp.com',
+          //   projectId: 'todolist-b04fa'
+          // });
           let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
           document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
         } catch (e) {
