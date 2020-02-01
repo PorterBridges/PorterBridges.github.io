@@ -1,4 +1,4 @@
-// import { listenerCount } from "cluster";
+
 
 var todoListFromLS = window.localStorage.getItem("todos");
 if(todoListFromLS){
@@ -30,7 +30,15 @@ function markAsDone(id){
     updateToLocalStorage();
 }
 
-
+function deleteTodo(id){
+    for(var i=0; i<todoList.length; i++){
+        var todo = todoList[i];
+        if(todo.id == id){
+            todoList.splice();
+        }
+    }
+    updateToLocalStorage();
+}
 
 function toggleTodoDone(id){
     for(var i=0; i<todoList.length; i++){
@@ -72,15 +80,13 @@ function renderTodoList(){
         var BUTTON = document.createElement('input')
         BUTTON.type = "button"
         BUTTON.name= "name"
-        BUTTON.delete = todo.done;
-
         todoItem.prepend(BUTTON);
-        BUTTON.setAttribute("data-id", todo.id);
         BUTTON.addEventListener("change", function(event) {
-            toggleTodoDone(event.target.dataset.id);
+            BUTTON(event.target.dataset.id);
             renderTodoList();
         })
         todoListDiv.append(todoItem);
+
     }
 }
 
@@ -88,7 +94,6 @@ function renderTodoList(){
 var todoInput = document.querySelector("#todo-input");
 var todoDesc = document.querySelector("#desc-input");
 var addTodoBtn = document.querySelector("#add-todo-btn");
-var deleteTodoBUTTON = document.querySelector(".todo-item")
 
 todoInput.addEventListener("keyup", function(e) {
     if(e.which == 13){
@@ -103,5 +108,4 @@ addTodoBtn.addEventListener("click", function(){
     renderTodoList();
 })
 
-// deleteTodoBUTTON.removeChild(deleteTodoBUTTON.childNodes[0]);
 
